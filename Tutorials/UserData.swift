@@ -22,11 +22,11 @@ struct PostUserData: Codable {
     let title: String
     let body: String
     
-    init() {
+    init(id: Int? = nil) {
         self.userId = "1"
         self.title = "Title"
         self.body = "Body"
-        self.id = nil
+        self.id = id
     }
     
     func toUserData() -> UserData {
