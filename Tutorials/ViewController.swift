@@ -14,17 +14,45 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    }
+    
+    private func setInfo(by data: UserData) {
+        resultLabel.text = """
+                            ID: \(data.id)\n
+                            Title: \(data.title)\n
+                            UserId: \(data.userId)\n
+                            Body: \(data.body)\n
+                           """
+    }
+    
+    private func setError() {
+        resultLabel.text = """
+                            ID: Error\n
+                            Title: Error\n
+                            UserId: Error\n
+                            Body: Error\n
+                           """
     }
 }
 
 extension ViewController {
     @IBAction private func created(_ sender: UIButton) {
-        
+        guard let url = URL(string: "https://github.com/kor45cw/") else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
     @IBAction private func GET1(_ sender: UIButton) {
-        
+        API.shared.get1 { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let userDatas):
+                guard let userData = userDatas.first else { return }
+                self.setInfo(by: userData)
+            case .failure(let error):
+                print("GET1 Error", error.localizedDescription)
+                self.setError()
+            }
+        }
     }
     
     @IBAction private func GET2(_ sender: UIButton) {
