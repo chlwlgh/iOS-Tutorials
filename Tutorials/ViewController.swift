@@ -12,8 +12,22 @@ class ViewController: UIViewController {
 
     @IBOutlet private weak var resultLabel: UILabel!
     
+    private var handler: ((Result<[UserData], Error>) -> Void)!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        handler = { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let userDatas):
+                guard let userData = userDatas.first else { return }
+                self.setInfo(by: userData)
+            case .failure(let error):
+                print("Error", error.localizedDescription)
+                self.setError()
+            }
+        }
     }
     
     private func setInfo(by data: UserData) {
@@ -42,35 +56,15 @@ extension ViewController {
     }
     
     @IBAction private func GET1(_ sender: UIButton) {
-        API.shared.get1 { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let userDatas):
-                guard let userData = userDatas.first else { return }
-                self.setInfo(by: userData)
-            case .failure(let error):
-                print("GET1 Error", error.localizedDescription)
-                self.setError()
-            }
-        }
+        API.shared.get1(completionHandler: handler)
     }
     
     @IBAction private func GET2(_ sender: UIButton) {
-        API.shared.get2 { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let userDatas):
-                guard let userData = userDatas.first else { return }
-                self.setInfo(by: userData)
-            case .failure(let error):
-                print("GET2 Error", error.localizedDescription)
-                self.setError()
-            }
-        }
+        API.shared.get2(completionHandler: handler)
     }
     
     @IBAction private func POST(_ sender: UIButton) {
-        
+        API.shared.post(completionHandler: handler)
     }
     
     @IBAction private func PUT(_ sender: UIButton) {

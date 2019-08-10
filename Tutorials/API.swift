@@ -42,4 +42,17 @@ class API {
                 }
             }
     }
+    
+    func post(completionHandler: @escaping (Result<[UserData], Error>) -> Void) {
+        let userData = PostUserData()
+        self.request = AF.request("\(Config.baseURL)/posts", method: .post, parameters: userData)
+        self.request?.responseDecodable { (response: DataResponse<PostUserData>) in
+                switch response.result {
+                case .success(let userData):
+                    completionHandler(.success([userData.toUserData()]))
+                case .failure(let error):
+                    completionHandler(.failure(error))
+                }
+            }
+    }
 }

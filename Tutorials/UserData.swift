@@ -14,3 +14,22 @@ struct UserData: Decodable {
     let title: String
     let body: String
 }
+
+
+struct PostUserData: Codable {
+    let userId: String
+    let id: Int?
+    let title: String
+    let body: String
+    
+    init() {
+        self.userId = "1"
+        self.title = "Title"
+        self.body = "Body"
+        self.id = nil
+    }
+    
+    func toUserData() -> UserData {
+        return UserData(userId: Int(userId) ?? 0, id: id ?? 0, title: title, body: body)
+    }
+}
