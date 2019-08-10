@@ -56,7 +56,17 @@ extension ViewController {
     }
     
     @IBAction private func GET2(_ sender: UIButton) {
-        
+        API.shared.get2 { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let userDatas):
+                guard let userData = userDatas.first else { return }
+                self.setInfo(by: userData)
+            case .failure(let error):
+                print("GET2 Error", error.localizedDescription)
+                self.setError()
+            }
+        }
     }
     
     @IBAction private func POST(_ sender: UIButton) {

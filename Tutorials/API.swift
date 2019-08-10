@@ -19,7 +19,20 @@ class API {
     private init() { }
     
     func get1(completionHandler: @escaping (Result<[UserData], Error>) -> Void) {
-        self.request = AF.request("\(Config.baseURL)/posts", method: .get)
+        self.request = AF.request("\(Config.baseURL)/posts")
+        self.request?.responseDecodable { (response: DataResponse<[UserData]>) in
+                switch response.result {
+                case .success(let userDatas):
+                    completionHandler(.success(userDatas))
+                case .failure(let error):
+                    completionHandler(.failure(error))
+                }
+            }
+    }
+    
+    func get2(completionHandler: @escaping (Result<[UserData], Error>) -> Void) {
+        let parameters: Parameters = ["userId": 1]
+        self.request = AF.request("\(Config.baseURL)/posts", method: .get, parameters: parameters, encoding: URLEncoding.default)
         self.request?.responseDecodable { (response: DataResponse<[UserData]>) in
                 switch response.result {
                 case .success(let userDatas):
