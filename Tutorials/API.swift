@@ -16,7 +16,21 @@ class API {
             oldValue?.cancel()
         }
     }
-    private init() { }
+    private var reachability: NetworkReachabilityManager!
+
+    private init() {
+        monitorReachability()
+    }
+    
+    private func monitorReachability() {
+        reachability = NetworkReachabilityManager(host: "www.apple.com")
+
+        reachability.listener = { status in
+            print("Reachability Status Changed: \(status)")
+        }
+
+        reachability.startListening()
+    }
     
     func get1(completionHandler: @escaping (Result<[UserData], Error>) -> Void) {
         self.request = AF.request("\(Config.baseURL)/posts")
