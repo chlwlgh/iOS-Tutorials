@@ -72,10 +72,10 @@ extension ViewController {
     }
     
     @IBAction private func PATCH(_ sender: UIButton) {
-        API.shared.post(completionHandler: handler)
+        API.shared.patch(completionHandler: handler)
     }
     
     @IBAction private func DELETE(_ sender: UIButton) {
-        API.shared.post(completionHandler: handler)
+        API.shared.delete(completionHandler: handler)
     }
 }

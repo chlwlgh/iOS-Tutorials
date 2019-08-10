@@ -68,4 +68,29 @@ class API {
                 }
             }
     }
+    
+    func patch(completionHandler: @escaping (Result<[UserData], Error>) -> Void) {
+        let userData = PostUserData(id: 1)
+        self.request = AF.request("\(Config.baseURL)/posts/1", method: .patch, parameters: userData)
+        self.request?.responseDecodable { (response: DataResponse<PatchUserData>) in
+                switch response.result {
+                case .success(let userData):
+                    completionHandler(.success([userData.toUserData()]))
+                case .failure(let error):
+                    completionHandler(.failure(error))
+                }
+            }
+    }
+    
+    func delete(completionHandler: @escaping (Result<[UserData], Error>) -> Void) {
+        self.request = AF.request("\(Config.baseURL)/posts/1", method: .delete)
+        self.request?.response { response in
+            switch response.result {
+            case .success:
+                completionHandler(.success([UserData(userId: -1, id: -1, title: "DELETE", body: "SUCCESS")]))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
 }

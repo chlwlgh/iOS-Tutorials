@@ -15,7 +15,6 @@ struct UserData: Decodable {
     let body: String
 }
 
-
 struct PostUserData: Codable {
     let userId: String
     let id: Int?
@@ -31,5 +30,16 @@ struct PostUserData: Codable {
     
     func toUserData() -> UserData {
         return UserData(userId: Int(userId) ?? 0, id: id ?? 0, title: title, body: body)
+    }
+}
+
+struct PatchUserData: Decodable {
+    let userId: String
+    let id: String
+    let title: String
+    let body: String
+    
+    func toUserData() -> UserData {
+        return UserData(userId: Int(userId) ?? 0, id: Int(id) ?? 0, title: title, body: body)
     }
 }
