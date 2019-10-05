@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet private weak var resultLabel: UILabel!
     
-    private var handler: ((Result<[UserData], Error>) -> Void)!
+    private var handler: ((Result<[UserData], API.APIError>) -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,21 +31,26 @@ class ViewController: UIViewController {
     }
     
     private func setInfo(by data: UserData) {
-        resultLabel.text = """
-                            ID: \(data.id)\n
-                            Title: \(data.title)\n
-                            UserId: \(data.userId)\n
-                            Body: \(data.body)\n
-                           """
+        DispatchQueue.main.async {
+            self.resultLabel.text = """
+             ID: \(data.id)\n
+             Title: \(data.title)\n
+             UserId: \(data.userId)\n
+             Body: \(data.body)\n
+            """
+        }
+        
     }
     
     private func setError() {
-        resultLabel.text = """
-                            ID: Error\n
-                            Title: Error\n
-                            UserId: Error\n
-                            Body: Error\n
-                           """
+        DispatchQueue.main.async {
+            self.resultLabel.text = """
+             ID: Error\n
+             Title: Error\n
+             UserId: Error\n
+             Body: Error\n
+            """
+        }
     }
 }
 
@@ -56,26 +61,26 @@ extension ViewController {
     }
     
     @IBAction private func GET1(_ sender: UIButton) {
-//        API.shared.get1(completionHandler: handler)
+        API.shared.get1(completionHandler: handler)
     }
     
     @IBAction private func GET2(_ sender: UIButton) {
-//        API.shared.get2(completionHandler: handler)
+        API.shared.get2(completionHandler: handler)
     }
     
     @IBAction private func POST(_ sender: UIButton) {
-//        API.shared.post(completionHandler: handler)
+        API.shared.post(completionHandler: handler)
     }
     
     @IBAction private func PUT(_ sender: UIButton) {
-//        API.shared.put(completionHandler: handler)
+        API.shared.put(completionHandler: handler)
     }
     
     @IBAction private func PATCH(_ sender: UIButton) {
-//        API.shared.patch(completionHandler: handler)
+        API.shared.patch(completionHandler: handler)
     }
     
     @IBAction private func DELETE(_ sender: UIButton) {
-//        API.shared.delete(completionHandler: handler)
+        API.shared.delete(completionHandler: handler)
     }
 }

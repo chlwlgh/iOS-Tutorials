@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A00D84F12348A34600E52EE2 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00D84F02348A34600E52EE2 /* HttpMethod.swift */; };
+		A00D84F32348A39000E52EE2 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00D84F22348A39000E52EE2 /* Resource.swift */; };
+		A00D84F52348A55200E52EE2 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00D84F42348A55200E52EE2 /* URLSession+Extension.swift */; };
 		A0741F0B22FEAAC600AC1DA6 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0741F0A22FEAAC600AC1DA6 /* Config.swift */; };
 		A0741F0D22FEAB0F00AC1DA6 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0741F0C22FEAB0F00AC1DA6 /* API.swift */; };
 		A0741F0F22FEAC2000AC1DA6 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0741F0E22FEAC2000AC1DA6 /* UserData.swift */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A00D84F02348A34600E52EE2 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		A00D84F22348A39000E52EE2 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		A00D84F42348A55200E52EE2 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
 		A0741F0A22FEAAC600AC1DA6 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		A0741F0C22FEAB0F00AC1DA6 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A0741F0E22FEAC2000AC1DA6 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -70,8 +76,11 @@
 			children = (
 				A0934F8A22FEA399008364B7 /* AppDelegate.swift */,
 				A0934F8C22FEA399008364B7 /* ViewController.swift */,
-				A0741F0A22FEAAC600AC1DA6 /* Config.swift */,
 				A0741F0C22FEAB0F00AC1DA6 /* API.swift */,
+				A0741F0A22FEAAC600AC1DA6 /* Config.swift */,
+				A00D84F02348A34600E52EE2 /* HttpMethod.swift */,
+				A00D84F22348A39000E52EE2 /* Resource.swift */,
+				A00D84F42348A55200E52EE2 /* URLSession+Extension.swift */,
 				A0741F0E22FEAC2000AC1DA6 /* UserData.swift */,
 				A0934F8E22FEA399008364B7 /* Main.storyboard */,
 				A0934F9122FEA39A008364B7 /* Assets.xcassets */,
@@ -156,7 +165,10 @@
 				A0934F8B22FEA399008364B7 /* AppDelegate.swift in Sources */,
 				A0741F0D22FEAB0F00AC1DA6 /* API.swift in Sources */,
 				A0741F0F22FEAC2000AC1DA6 /* UserData.swift in Sources */,
+				A00D84F52348A55200E52EE2 /* URLSession+Extension.swift in Sources */,
+				A00D84F12348A34600E52EE2 /* HttpMethod.swift in Sources */,
 				A0741F0B22FEAAC600AC1DA6 /* Config.swift in Sources */,
+				A00D84F32348A39000E52EE2 /* Resource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
