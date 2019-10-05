@@ -8,6 +8,7 @@ This project hosts each sample app in separate repository branches. For more inf
 | Sample | Description |
 | ------------- | ------------- |
 | [Alamofire](https://github.com/kor45cw/iOS-Tutorials/tree/network/alamofire) | Demonstrates a basic networking library [Alamofire](https://github.com/Alamofire/Alamofire) |
+| [URLSession](https://github.com/kor45cw/iOS-Tutorials/tree/network/urlsession) | Demonstrates a basic networking with apple   provided [URLSession](https://developer.apple.com/documentation/foundation/urlsession) |
 
 
 ## Open a sample in Xcode
@@ -27,7 +28,7 @@ Checkout the todo-mvp sample:
 git checkout network/alamofire
 ```
 
-Pod install:
+Pod install: (optional!, if project folder have pod file)
 ```
 cd Tutorials
 pod install
