@@ -2,31 +2,21 @@
 
 Swift로 만들어진 HTTP Networking 라이브러리 Alamofire을 소개합니다.
 
-* [Alamofire github](https://github.com/Alamofire/Alamofire)
+* [URLSession Document Page](https://developer.apple.com/documentation/foundation/urlsession)
 
 
 ## 프로젝트에서 사용하는 것 
-* Alamofire : 통신 라이브러리
+* URLSession : 애플에서 기본으로 제공하느 통신 라이브러리
 * JSONPlaceholder : JSON 형식의 REST API를 연습해볼 수 있는 홈페이지
 
-## Xcode 설정 (Xcode 10.2 기준)
+## Xcode 설정 (Xcode 11.0 기준)
 * Target은 iOS 11 이상을 가정하고 진행합니다.
 * 현재 프로젝트는 JSON 형태의 response와 request를 가정하고 있습니다.
-* 아래의 5.0.0-beta.7은 현재 최신 버전입니다. 더 업그레이드 된 버전이 있다면 홈페이지에서 확인 후 사용하시기 바랍니다.
-* [참고링크](https://github.com/kor45cw/iOS-Tutorials/blob/network/alamofire/Podfile)
-
-Alamofire 라이브러리 사용을 위해 Podfile에 다음의 설정을 해주도록 합니다.
-
-```
-pod 'Alamofire', '~> 5.0.0-beta.7'
-```
-
-이후 terminal 에서 `pod install`을 진행하시면 자동으로 라이브러리가 설치됩니다.
 
 ## Config 파일 만들기
 - 통신을 하는 baseURL 등을 지정하는 별도 파일입니다.
 - 대게 static 변수들로 이루어져 있습니다.
-- [참고링크](https://github.com/kor45cw/iOS-Tutorials/blob/network/alamofire/Tutorials/Config.swift)
+- [참고링크](https://github.com/kor45cw/iOS-Tutorials/blob/network/urlsession/Tutorials/Config.swift)
 
 ```swift
 struct Config {
@@ -37,7 +27,7 @@ struct Config {
 ## Codable struct 생성
 - [Codable](https://developer.apple.com/documentation/swift/codable) protocol은 JSON, plist 등으로 이루어 진 데이터를 편리하게 객체로 변환해주는 protocol 입니다.
 	- Decodable과 Encodable로 이루어져 있습니다.
-- [참고링크](https://github.com/kor45cw/iOS-Tutorials/blob/network/alamofire/Tutorials/UserData.swift)
+- [참고링크](https://github.com/kor45cw/iOS-Tutorials/blob/network/urlsession/Tutorials/UserData.swift)
 
 ```swift
 struct UserData: Decodable {
@@ -79,7 +69,7 @@ struct PatchUserData: Decodable {
 
 ## API service 생성하기
 - Config, Codable object가 생성 되었으면, 이제 직접 통신을 시도할 차례입니다.
-- [참고링크](https://github.com/kor45cw/iOS-Tutorials/blob/network/alamofire/Tutorials/API.swift)
+- [참고링크](https://github.com/kor45cw/iOS-Tutorials/blob/network/urlsession/Tutorials/API.swift)
 
 ```swift
 class API {
@@ -242,7 +232,7 @@ class API {
 
 ## API 의 사용
 - ViewController 등에서 API 호출하는 방식을 알아봅니다.
-- [참고링크](https://github.com/kor45cw/iOS-Tutorials/blob/network/alamofire/Tutorials/ViewController.swift)
+- [참고링크](https://github.com/kor45cw/iOS-Tutorials/blob/network/urlsession/Tutorials/ViewController.swift)
 
 ```swift
 @IBAction private func GET1(_ sender: UIButton) {
@@ -264,10 +254,7 @@ handler = { [weak self] result in
 
 
 ## 마무리
-* Alamofire의 기초적인 사용법을 알아보았습니다.
-* 위의 방식 이외에도 다양한 방식으로 통신을 할 수 있으며, [RxSwift](https://github.com/RxSwiftCommunity/RxAlamofire)역시 지원을 합니다.
-* 이번 포스팅에서 사용되었던 코드 예제는 [Github - kor45cw/Tutorials, Alamofire branch](https://github.com/kor45cw/iOS-Tutorials/tree/network/alamofire/)에서 확인하실수 있습니다.
+* URLSession의 기초적인 사용법을 알아보았습니다.
+* 이번 포스팅에서 사용되었던 코드 예제는 [Github - kor45cw/Tutorials, URLSession branch](https://github.com/kor45cw/iOS-Tutorials/tree/network/urlsession/)에서 확인하실수 있습니다.
 
 - Android 통신 라이브러리인 [Retrofit의 예제](https://kor45cw.tistory.com/5) 도 있으니 참고 부탁드립니다.
-
-질문 및 지적은 댓글로 해주시면 감사하겠습니다.
