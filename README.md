@@ -23,7 +23,7 @@ Clone the repository:
 git clone git@github.com:kor45cw/ios-tutorials.git
 ```
 
-Checkout the todo-mvp sample:
+Checkout the alamofire sample:
 ```
 git checkout network/alamofire
 ```
