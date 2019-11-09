@@ -1,5 +1,7 @@
 # iOS-Tutorials
 
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fkor45cw%2FiOS-Tutorials)](https://hits.seeyoufarm.com)
+
 ## Explore the samples
 
 This project hosts each sample app in separate repository branches. For more information, see the `README.md` file in each branch.
